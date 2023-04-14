@@ -1,0 +1,10 @@
+17563 Anna_Karenina Leo_Tolstoy Eksmo 330
+23456 Crime_and_Punishment Fyodor_Dostoevsky AST 240
+87690 The_Master_and_Margarita Mikhail_Bulgakov AST 474
+16537 War_and_Peace Leo_Tolstoy Azbuka 368
+37561 Fathers_and_Sons Ivan_Turgenev Ripol-Classic 779
+82567 A_Hero_of_Our_Time Mikhail_Lermontov Eksmo 192
+00391 Eugene_Onegin Alexandr_Pushkin Eksmo 184
+73012 The_Idiot Fyodor_Dostoevsky AST 229
+56298 Dead_Souls Nikolai_Gogol Eksmo 325
+63810 Oblomov Ivan_Goncharov Azbuka 202
