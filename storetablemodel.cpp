@@ -1,13 +1,12 @@
 #include "storetablemodel.h"
 
-#include <iostream>
 StoreTableModel::StoreTableModel(QObject *parent)
     : QAbstractTableModel{parent}
 {
 
 }
 
-void StoreTableModel::populateData(const std::map<std::string, Book *> &stor)
+void StoreTableModel::populateData(Instance **stor)
 {
     this->_m_names.clear();
     this->_m_authors.clear();
@@ -16,15 +15,19 @@ void StoreTableModel::populateData(const std::map<std::string, Book *> &stor)
     this->_m_margPrices.clear();
     this->_m_amounts.clear();
 
-    for (const auto& [key, val] : stor)
+    for (int i = 0; i < 10; i++)
     {
-        this->_m_names.append(QString::fromUtf8(val->getName().c_str()));
-        this->_m_authors.append(QString::fromUtf8(val->getAuthor().c_str()));
-        this->_m_editors.append(QString::fromUtf8(val->getEditor().c_str()));
-        this->_m_prices.append(QString::fromUtf8(std::to_string(val->getPrice()).c_str()));
-        this->_m_margPrices.append(QString::fromUtf8(std::to_string(val->getMargPrice()).c_str()));
-        this->_m_amounts.append(QString::fromUtf8(std::to_string(val->getAmount()).c_str()));
+        this->_m_names.append(QString::fromUtf8((*stor[i]).getBook()->getName().c_str()));
+        this->_m_authors.append(QString::fromUtf8((*stor[i]).getBook()->getAuthor().c_str()));
+        this->_m_editors.append(QString::fromUtf8((*stor[i]).getBook()->getEditor().c_str()));
+        this->_m_prices.append(QString::fromUtf8(std::to_string((*stor[i]).getBook()->getPrice()).c_str()));
+        this->_m_margPrices.append(QString::fromUtf8(std::to_string((*stor[i]).getBook()->getMargPrice()).c_str()));
+        this->_m_amounts.append(QString::fromUtf8(std::to_string((*stor[i]).getAmount()).c_str()));
     }
+    QModelIndex topLeft = index(0, 0);
+    QModelIndex bottomRight = index(rowCount() - 1, columnCount() - 1);
+
+    emit dataChanged(topLeft, bottomRight);
 }
 
 int StoreTableModel::rowCount(const QModelIndex &parent) const

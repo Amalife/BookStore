@@ -4,8 +4,9 @@ Storage::Storage(const std::string &bookFile, int margin)
 {
     std::string line;
     std::string delim = " ";
-    std::string tokens[5];
+    std::string tokens[4];
     int i;
+    int j = 0;
     size_t pos;
     int price;
     int margPrice;
@@ -24,20 +25,21 @@ Storage::Storage(const std::string &bookFile, int margin)
             i++;
         }
         tokens[i] = line;
-        price = std::atoi(tokens[4].c_str());
+        price = std::atoi(tokens[3].c_str());
         margPrice = price + int(float(price) * 0.01 * float(margin));
-        this->_m_stor[tokens[0]] = new Book(tokens[1], tokens[2], tokens[3], price, margPrice, 0);
+        this->_m_stor[j] = new Instance(tokens[0], tokens[1], tokens[2], price, margPrice, 0);
+        j++;
     }
     this->_m_input.close();
 }
 
 Storage::~Storage()
 {
-    for (const auto& [key, val] : this->_m_stor)
-        delete val;
+    for (int i = 0; i < 10; i++)
+        delete this->_m_stor[i];
 }
 
-const std::map<std::string, Book*> &Storage::getStorage() const
+Instance **Storage::getStorage()
 {
     return this->_m_stor;
 }

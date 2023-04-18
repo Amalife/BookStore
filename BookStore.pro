@@ -10,14 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     book.cpp \
+    instance.cpp \
     main.cpp \
     bookstore.cpp \
+    reqtablemodel.cpp \
+    request.cpp \
     storage.cpp \
     storetablemodel.cpp
 
 HEADERS += \
     book.h \
     bookstore.h \
+    instance.h \
+    reqtablemodel.h \
+    request.h \
     storage.h \
     storetablemodel.h
 

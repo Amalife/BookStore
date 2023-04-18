@@ -4,9 +4,12 @@
 #include <QWidget>
 #include <fstream>
 #include <string>
+#include <deque>
 
 #include "storage.h"
+#include "request.h"
 #include "storetablemodel.h"
+#include "reqtablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class BookStore; }
@@ -17,7 +20,7 @@ class BookStore : public QWidget
     Q_OBJECT
 
 public:
-    BookStore(QWidget *parent = nullptr, const std::string &booksFile = nullptr);
+    BookStore(const std::string &booksFile, QWidget *parent = nullptr);
     ~BookStore();
 
 signals:
@@ -26,6 +29,7 @@ signals:
 private slots:
     void slotButtonClicked();
     void slotSpinBoxChange(int val);
+    void slotNextButtonClicked();
 
 private:
     Ui::BookStore *ui;
@@ -39,6 +43,9 @@ private:
     const std::string _m_clientsFile;
 
     Storage *_m_storage;
+    std::deque<Request *> _m_reqs;
+
     StoreTableModel *_m_storeTable;
+    ReqTableModel *_m_reqTable;
 };
 #endif // BOOKSTORE_H

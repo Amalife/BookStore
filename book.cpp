@@ -1,8 +1,8 @@
 #include "book.h"
 
 Book::Book(const std::string &name, const std::string &author, \
-           const std::string &editor, int price, int margPrice, int amount):
-    _m_name(name), _m_author(author), _m_editor(editor), _m_price(price), _m_margPrice(margPrice), _m_amount(amount)
+           const std::string &editor, int price, int margPrice):
+    _m_name(name), _m_author(author), _m_editor(editor), _m_price(price), _m_margPrice(margPrice)
 {
 
 }
@@ -35,14 +35,4 @@ int Book::getPrice() const
 int Book::getMargPrice() const
 {
     return this->_m_margPrice;
-}
-
-int Book::getAmount() const
-{
-    return this->_m_amount;
-}
-
-void Book::setAmount(int amount)
-{
-    this->_m_amount = amount;
 }

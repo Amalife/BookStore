@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    BookStore w(nullptr, "../BookStore/books.txt");
+    BookStore w("../BookStore/books.txt", nullptr);
     w.show();
 
     return a.exec();
