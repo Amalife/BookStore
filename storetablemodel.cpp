@@ -6,7 +6,7 @@ StoreTableModel::StoreTableModel(QObject *parent)
 
 }
 
-void StoreTableModel::populateData(Instance **stor)
+void StoreTableModel::populateData(Instance **stor, int nBooks)
 {
     this->_m_names.clear();
     this->_m_authors.clear();
@@ -15,7 +15,7 @@ void StoreTableModel::populateData(Instance **stor)
     this->_m_margPrices.clear();
     this->_m_amounts.clear();
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < nBooks; i++)
     {
         this->_m_names.append(QString::fromUtf8((*stor[i]).getBook()->getName().c_str()));
         this->_m_authors.append(QString::fromUtf8((*stor[i]).getBook()->getAuthor().c_str()));

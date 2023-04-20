@@ -13,6 +13,10 @@ SOURCES += \
     instance.cpp \
     main.cpp \
     bookstore.cpp \
+    order.cpp \
+    ordtablemodel.cpp \
+    report.cpp \
+    reportwindow.cpp \
     reqtablemodel.cpp \
     request.cpp \
     storage.cpp \
@@ -22,13 +26,18 @@ HEADERS += \
     book.h \
     bookstore.h \
     instance.h \
+    order.h \
+    ordtablemodel.h \
+    report.h \
+    reportwindow.h \
     reqtablemodel.h \
     request.h \
     storage.h \
     storetablemodel.h
 
 FORMS += \
-    bookstore.ui
+    bookstore.ui \
+    reportwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -3,7 +3,7 @@
 
 #include <QAbstractTableModel>
 #include <string>
-#include <deque>
+#include <vector>
 #include "request.h"
 
 class ReqTableModel : public QAbstractTableModel
@@ -17,9 +17,10 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    void populateData(std::deque<Request *> &reqs);
+    void populateData(std::vector<Request *> &reqs);
 
 private:
+    QList<QString> _m_ids;
     QList<QString> _m_names;
     QList<QString> _m_authors;
     QList<QString> _m_editors;
